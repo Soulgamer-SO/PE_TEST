@@ -6,16 +6,18 @@ PX_CanvasVM canvasvm;
 PX_Object *Canvas, *Layer, *PainterBox, *Menu;
 px_byte data[16 * 1024 * 1024];
 
- px_void PX_MenuExecuteOnOpenFile(px_void *buffer, px_int size, px_void *userPtr)
+px_void PX_MenuExecuteOnOpenFile(px_void *buffer, px_int size, px_void *userPtr)
 {
     // 打开并导入文件
     PX_CanvasVMImport(&canvasvm, buffer, size);
+    return;
 }
 
 px_void PX_MenuExecuteOpenFile(px_void *userPtr)
 {
     // 打开文件对话框
     PX_RequestData("open", data, sizeof(data), userPtr, PX_MenuExecuteOnOpenFile);
+    return;
 }
 
 px_void PX_MenuExecuteExportSaveFile(px_void *userPtr)
@@ -26,6 +28,7 @@ px_void PX_MenuExecuteExportSaveFile(px_void *userPtr)
     PX_CanvasVMExport(&canvasvm, &data);
     PX_RequestData("download:PainterEngine.pe", data.buffer, data.usedsize, userPtr, 0);
     PX_MemoryFree(&data);
+    return;
 }
 
 px_void PX_MenuExecuteExportPngFile(px_void *userPtr)
@@ -36,9 +39,17 @@ px_void PX_MenuExecuteExportPngFile(px_void *userPtr)
     PX_CanvasVMExportAsPng(&canvasvm, &data);
     PX_RequestData("download:image.png", data.buffer, data.usedsize, userPtr, 0);
     PX_MemoryFree(&data);
+    return;
 }
 
-int main()
+px_void PX_MenuExecuteLog(px_void *userPtr)
+{
+    // 不做任何事情
+    printf("Hello!\n");
+    return;
+}
+
+int px_main()
 {
     PX_IO_Data data;
     PainterEngine_Initialize(1200, 600);
@@ -62,6 +73,7 @@ int main()
     PX_Object_MenuAddItem(Menu, 0, "Open File", PX_MenuExecuteOpenFile, 0);
     PX_Object_MenuAddItem(Menu, 0, "Save File", PX_MenuExecuteExportSaveFile, 0);
     PX_Object_MenuAddItem(Menu, 0, "Export to PNG file", PX_MenuExecuteExportPngFile, 0);
+    PX_Object_MenuAddItem(Menu, 0, "Do nothing", PX_MenuExecuteLog, 0);
 
     // 示范:加载绘制的文件
     data = PX_LoadFileToIOData("assets/PainterEngine.pe");
