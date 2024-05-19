@@ -1,5 +1,5 @@
 # PE_TEST
 
-SOgamer-SO's C Language Program project.
+This is PainterEngine APP project test on Linux.
 ___________________________________________________
-The project used the PainterEngine SDK from https://github.com/matrixcascade/PainterEngine
+This project used the PainterEngine SDK from https://github.com/matrixcascade/PainterEngine

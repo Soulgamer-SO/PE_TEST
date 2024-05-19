@@ -1,4 +1,4 @@
-#include "PainterEngine/PainterEngine.h"
+#include "../PainterEngine/PainterEngine.h"
 
 px_texture tex;
 PX_Object *canvas_root;

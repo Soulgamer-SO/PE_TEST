@@ -9,7 +9,6 @@ project_h := $(patsubst %.c,%.h,$(project_src))
 target_path_debug := $(project_src_path)debug/
 target_path_release := $(project_src_path)release/
 PE_INCLUDE_HEADER = -I $(PE_path) -I $(project_src_path) -I $(PE_path)runtime -I $(PE_path)platform/linux  -I $(PE_path)platform/modules
-CFLAGS = -D $(DEBUG) -D $(_DEFAULT_SOURCE) -g -O0
 LD_LIBRARY_FLAGS = -L. -lGL -lglut -lpthread
 core_src_path := $(PE_path)core/
 core_src := $(wildcard $(core_src_path)*.c)
@@ -47,8 +46,8 @@ PE_TEST_o := $(runtime_o) $(kernel_o) $(core_o) $(platform_o)
 all:$(PE_TEST_src)
 	$(CC) $(project_src) $(PE_TEST_src) -D $(_DEFAULT_SOURCE) -O0 -o $(target_path_release)$(target_bin) $(LD_LIBRARY_FLAGS)
 .PHONY:debug release install clean
-debug:$(project_o) $(PE_TEST_o)
-	$(CC) $(project_o) $(PE_TEST_o) -O0 -o $(target_path_debug)$(target_bin) $(PE_INCLUDE_HEADER) $(LD_LIBRARY_FLAGS)
+debug:$(project_src) $(PE_TEST_src)
+	$(CC) $(project_src) $(PE_TEST_src) -g -D $(_DEFAULT_SOURCE) -O0 -o $(target_path_debug)$(target_bin) $(LD_LIBRARY_FLAGS)
 release:$(project_src) $(PE_TEST_src)
 	$(CC) $(project_src) $(PE_TEST_src) -D $(_DEFAULT_SOURCE) -O0  -o $(target_path_release)$(target_bin) $(LD_LIBRARY_FLAGS)
 install:
