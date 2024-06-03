@@ -1,7 +1,7 @@
 CC = gcc -m64 -std=c17
 DEBUG = DEBUG
 _DEFAULT_SOURCE = _DEFAULT_SOURCE
-PE_path = PainterEngine/
+PE_path = ../PainterEngine/
 project_src_path := project/
 project_src := $(wildcard $(project_src_path)*.c)
 project_o := $(patsubst %.c,%.o,$(project_src))
