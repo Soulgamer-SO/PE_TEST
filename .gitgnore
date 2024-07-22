@@ -31,5 +31,8 @@
 *.out
 *.app
 
+# ICO
+*.ico
+
 .vscode/
 build/
