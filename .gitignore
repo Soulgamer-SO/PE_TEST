@@ -23,13 +23,3 @@ build/
 *.exe
 *.out
 *.app
-
-#.vscode/c_cpp_properties.json
-#.vscode/c_cpp_properties(Linux).json
-#.vscode/c_cpp_properties(Win).json
-#.vscode/launch.json
-#.vscode/settings.json
-#.vscode/settings(Linux) .json
-#.vscode/settings(Win).json
-#.vscode/tasks.json
-#project/build/debug/PE_TEST
