@@ -1,0 +1,36 @@
+
+# DIR
+.vscode/
+build/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.vscode/c_cpp_properties.json
+.vscode/c_cpp_properties(Linux).json
+.vscode/c_cpp_properties(Win).json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/settings(Linux) .json
+.vscode/settings(Win).json
+.vscode/tasks.json
+project/build/debug/PE_TEST
