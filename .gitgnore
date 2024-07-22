@@ -23,5 +23,6 @@
 *.out
 *.app
 
+# DIR
 .vscode/
 build/
