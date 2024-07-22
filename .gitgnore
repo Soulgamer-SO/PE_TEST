@@ -1,5 +1,6 @@
-# Prerequisites
-*.d
+# DIR
+.vscode/
+build/
 
 # Compiled Object files
 *.slo
@@ -22,7 +23,3 @@
 *.exe
 *.out
 *.app
-
-# DIR
-.vscode/
-build/
