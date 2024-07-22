@@ -6,8 +6,8 @@ project_src_path := project/
 project_src := $(wildcard $(project_src_path)*.c)
 project_o := $(patsubst %.c,%.o,$(project_src))
 project_h := $(patsubst %.c,%.h,$(project_src))
-target_path_debug := $(project_src_path)debug/
-target_path_release := $(project_src_path)release/
+target_path_debug := $(project_src_path)build/debug/
+target_path_release := $(project_src_path)build/release/
 PE_INCLUDE_HEADER = -I $(PE_path) -I $(project_src_path) -I $(PE_path)runtime -I $(PE_path)platform/linux  -I $(PE_path)platform/modules
 LD_LIBRARY_FLAGS = -L. -lGL -lglut -lpthread
 core_src_path := $(PE_path)core/
@@ -18,17 +18,19 @@ kernel_src_path := $(PE_path)kernel/
 kernel_src := $(wildcard $(kernel_src_path)*.c)
 kernel_o := $(patsubst %.c,%.o,$(kernel_src))
 kernel_h := $(patsubst %.c,%.h,$(kernel_src))
+target_bin := petest
+
 #on Linux
 ifeq ($(shell uname),Linux)
     ifeq ($(shell uname -m),x86_64)
         platform_src_path := $(PE_path)platform/linux/
-        target_bin := PE_TEST
+        target_bin := petest
    endif
 endif
 #on Windows
 ifeq ($(OS),Windows_NT)
     platform_src_path := $(PE_path)platform/windows/
-    target_bin := PE_TEST.exe
+    target_bin := petest.exe
 endif
 platform_src := $(wildcard $(platform_src_path)*.c)
 platform_o := $(patsubst %.c,%.o,$(platform_src))
