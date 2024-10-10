@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "preLaunchTask": "Linux_debug_make",
+            "name": "LinuxDebugMake",
+            "type": "cppdbg",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/project/build/debug/petest"
+        },
+        {
+            "preLaunchTask": "Linux_release_make",
+            "name": "LinuxReleaseMake",
+            "type": "cppdbg",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/project/build/release/petest"
+        },
+        {
+            "preLaunchTask": "Win_debug_make",
+            "name": "WinDebugMake",
+            "type": "cppdbg",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/project/build/debug/petest.exe"
+        },
+        {
+            "preLaunchTask": "Win_release_make",
+            "name": "WinReleaseMake",
+            "type": "cppdbg",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/project/build/release/petest.exe"
+        }
+    ]
+}
